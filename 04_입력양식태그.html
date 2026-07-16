@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력 양식 태그</title>
+</head>
+<body>
+    <h2>입력 양식 태그</h2>
+    <h3>&lt;input&gt; 태그</h3>
+    <p>
+        사용자에게 값을 입력 받을 수 있는 텍스트 상자 또는 테크 박스 등을 표시해주는 태그
+    </p>
+    <!-- input 태그는 인라인 요소-->
+    아이디 : <input type="text">
+    <br>
+    비밀번호 : <input type="password">
+    <br>
+    성별 : <label><input type="radio" name="gender"> 남자</label>
+           <label><input type="radio" name="gender"> 여자</label>
+    <br>
+    <input type="submit" value="회원가입">
+    <hr>
+    <h2>폼(form) 태그></h2>
+    <p>
+        폼 태그 내에 submit 버튼 클릭 시, 해당 폼 태그 내에 작성 된
+        <br>
+        사용자가 입력 한 값들을 서버로 전달하면서 요청을 수행
+    </p>
+    <h4>속성</h4>
+    <ul>
+        <li><b>action</b> : 요청 할 서버 주소(경로)</li>
+        <li><b>method</b> : 요청 전송 방식</li>
+            <ul>
+                <li>get 방식 : 요청 시 사용자가 입력한 값들이 URL에 노출되는 방식 <i>(기본값)</i></li>
+                <li>post 방식 : 요청 시 사용자가 입력한 값들이 URL에 노출되지 않는 방식</li>
+            </ul>
+    </ul>
+    <form action="search" method="get">
+        검색어: <input type="text" name="keyword"> <input type="submit" value="검색">
+    </form>
+    <br>
+    <h3>유튜브 검색</h3>
+    <form action="https://www.youtube.com/results" method="get">
+        검색어: <input type="text" name="search_query"> <input type="submit"  value="▶ 검색"
+                                                               style="background-color: rgb(246, 0, 48); color: white;">    
+    </form>
+    <h3>네이버 검색</h3>
+    <form action="https://search.naver.com/search.naver" method="get">
+        검색어: <input type="text" name="query"> <input type="submit" value="검색"
+                                                        style="background-color: rgb(3, 199, 90); color: white;">    
+    </form>
+    <br>
+    <h3>POST 방식 테스트</h3>
+    <form action="login" method="post">
+        <label>
+            아이디: <input type="text" name="userID" placeholder="아이디 입력">
+        </label>
+        <br>
+        <label>
+            비밀번호: <input type="password" name="password" placeholder="비밀번호 입력"> 
+        </label>
+        <br>
+        <input type="submit" value="로그인">
+    </form>
+    <hr>
+    <h2>그 외의 입력 태그들</h2>
+    <form action="test" method="post">
+        <!-- radio : 동일한 name 속성을 가진 항목 중 단 한 가지만 선택하도록 강제함-->
+        <p><b>성별</b></p> 
+        <label>
+            <input type="radio" name="gender" value="남자" checked> 남자            
+         </label>
+          <label>
+            <input type="radio" name="gender" value="여자"> 여자            
+         </label>
+        
+        <p><b>나이대</b></p>
+         <label>
+            <input type="radio" name="age" value="20" checked> 20대            
+         </label>
+          <label>
+            <input type="radio" name="age" value="30"> 30대            
+         </label>
+           <label>
+            <input type="radio" name="age" value="40"> 40대           
+         </label>
+
+        <!-- checkbox : 동일한 name 속성을 가지고 여러 개를 선택 할 수 있도록 하는 태그 -->
+        <p><b>취미 (중복 가능)</b></p>
+         <label>
+            <input type="checkbox" name="hobby" value="쇠질"> 쇠질
+         </label>
+         <label>   
+            <input type="checkbox" name="hobby" value="게임"> 게임
+         </label>
+         <label>   
+            <input type="checkbox" name="hobby" value="등산"> 등산
+         </label>
+         
+        <!-- number : 숫자만 입력 받도록 제한되는 타입 -->
+        <p><b>시험 점수</b></p>
+         <input type="number" name="score"
+                min="0" max="100">
+        
+        <!-- date : 캘린더 형태로 표시 해주는 타입 (날짜 정보) -->
+        <p><b>생일</b></p>
+         <input type="date" name="birth">
+         <input type="time" name="time">
+         <input type="datetime-local" name="local time">
+
+
+         <hr>
+         <!-- textarea : 여러 줄 입력이 가능한 태그 -->
+         <p><b>주말 계획</b></p>
+         <textarea name="plan" rows="5" cols="50" style="resize: none;">전달 될 내용</textarea>
+         
+
+
+         <br>
+         <br>
+         <input type="button" value="input button type 버튼">
+         <br>
+         <button>&lt;button&gt;&lt;/button&gt; 태그</button>
+         <br>
+         <button>
+            <img src="/public/my_feeling.png" alt="배고파 강아지 이미지 버튼"
+                 width="200"> 이거슨 배고파 강아지 이미지 버튼
+         </button>
+         <br>
+         <input type="submit" value="input submit type 버튼">
+    </form>
+</body>
+</html>
