@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="referrer" content="strict-origin-when-cross-origin">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>HTML 실습 - 나의 프로필 & 회원가입 페이지</title>
 </head>
 
 <body>
@@ -53,7 +53,7 @@
 
     <!-- 여기에 코드를 작성하세요 -->
     <a href="https://github.com/Jung-YoonB" target="_blank">
-        <img src="./public/image.jpg" alt="깃 허브 프로필 페이지로 이동" width="100">
+        <img src="./public/image.jpg" alt="프로필 이미지, 깃 허브 개인 프로필 페이지로 이동" width="150">
     </a>
 
     <hr>
@@ -78,9 +78,9 @@
     <p>
         &nbsp;&nbsp;안녕하세요! 저는 <strong>배정윤</strong>입니다.
         <br>
-        &nbsp;&nbsp;저는 <mark>게임과 잠자기</mark>를 좋아합니다.
+        &nbsp;&nbsp;&nbsp;&nbsp;저는 <mark>게임과 잠자기</mark>를 좋아합니다.
         <br>
-        &nbsp;&nbsp;<s>저는 프로 귀차니즘러입니다.</s>
+        &nbsp;&nbsp;&nbsp;&nbsp;<del>저는 탈모가 있어 새싹입니다.</del>
     </p>
 
     <hr>
@@ -99,12 +99,13 @@
     <p><b>내가 배운 것들</b></p>
     <ul>
         <li>Java</li>
-        <li>Oracle</li>
+        <li>Oracle(SQL)</li>
         <li>HTML</li>
     </ul>
 
     <p><b>앞으로 배우고 싶은 것</b></p>
     <ol>
+        <li>CSS</li>
         <li>React</li>
         <li>Node.js</li>
         <li>Python</li>
@@ -144,19 +145,19 @@
         </thead>
         <tbody>
             <tr>
-            <td>학력</td>
+            <th>학력</th>
             <td>2020~2024</td>
             <td>XX대학교</td>
             </tr>
             <tr>
-            <td>경력</td>
+            <th>경력</th>
             <td>2024~현재</td>
             <td>XX회사</td>
             </tr>
         </tbody>
         <tfoot>
             <tr>
-            <td colspan="3">총 경력: 1년</td>
+            <th colspan="3">총 경력: 1년</th>
             </tr>
         </tfoot>
     </table>
@@ -224,6 +225,12 @@
 
     form 조건:
     - action="/signup", method="post"
+        => action : 전송할 서버 주소
+        => method : 요청 방식 (get, post)
+                - get : 조회, 검색할 때 사용하는 방식, 
+                        요청 주소 상에 전달하는 데이터가 노출 됨
+                - post : 로그인, 회원가입 시 사용하는 방식, 
+                         요청 주소에는 서버 주소만 표시, 데이터는 요청 본문(body)에 담아서 전송
 
     입력 항목 (모두 label로 감싸거나 label과 연결):
     1. 아이디     : type="text",     name="username",  required, placeholder="아이디 입력"
@@ -245,23 +252,31 @@
         <!-- 조건에 맞추어 POST 전송 방식으로 변경함 -->
 
         <form action="/signup" method="post">
-            <label for="id">
+            <label>
                 아이디: <input type="text" name="username" placeholder="아이디 입력" required>
             </label>
+
+            <!-- label for 로 매칭 시킬 경우, id 속성으로 네이밍을 맞춰 주어야 함!
+            <label for="username">
+                아이디:
+            </label>
+            <input type="text" id="username" name="username" placeholder="아이디 입력" required>
+            -->
+
             <br>
-            <label for="pass">
+            <label>
                 비밀번호: <input type="password" name="password" placeholder="비밀번호 입력" required>
             </label>
             <br>
-            <label for="email">
+            <label>
                 이메일: <input type="email" name="email" placeholder="이메일 입력">
             </label>
             <br>
-            <label for="birth">
+            <label>
                 생년월일: <input type="date" name="birth">
             </label>
             <br>
-            <label for="gender">
+            <label>
                 성별:
                 <label>
                     <input type="radio" name="gender" value="남자" checked> 남자
@@ -271,7 +286,7 @@
                 </label>
             </label>
             <br>
-            <label for="interest">
+            <label>
                 관심 분야:
                 <label>
                     <input type="checkbox" name="interest" value="프로그래밍"> 프로그래밍
@@ -284,13 +299,13 @@
                 </label>
             </label>
             <br>
-            <label for="self_intro">
+            <label>
                 자기소개:
                 <br>
                 <textarea name="intro" rows="4" cols="40" placeholder="자기소개를 입력하세요"></textarea>
             </label>
             <br>
-            <label for="select_lang">
+            <label>
                 언어 선택:
                 <select name="language" >
                     <option value="한국어">한국어</option>
@@ -299,10 +314,14 @@
                 </select>
             </label>
             <br>
-            <label for="button">
-                <button>가입하기</button>
-                <input type="reset" value="다시 입력">
-            </label>
+            <br>
+            <button>가입하기</button>
+            <!-- 일반 버튼으로 사용하고 싶을때는 type 으로 button 지정, 아니면 submit 버튼이 됨
+                <button type="button"></button>
+                <input type="button">아니면 인풋으로 버튼 타입 지정해도 됨
+            -->
+
+            <input type="reset" value="다시 입력">
         </form>
         
         <hr>
