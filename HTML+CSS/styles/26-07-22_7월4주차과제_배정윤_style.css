@@ -1,0 +1,206 @@
+/* 전체 스타일 초기화, 박스 사이징, 폰트 지정 */
+* {margin: 0; padding: 0; box-sizing: border-box; font-family: Gamja Flower; letter-spacing: 2px;}
+ul, ol, li {list-style: none;}
+a {text-decoration: none; color: #003400;}
+
+/* header 스타일 설정 : 상단 고정, 영역 침범 방지, flex 정렬 등 */
+header {
+    position: fixed; z-index: 1000;
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px;
+    width: 100%;
+    padding: 5px 0 0 15px;
+    background-color: white;    
+}
+            
+    /* header img 세부 설정 : 크기 */
+    header img {width: 40px;}
+
+    /* header h1 세부 설정 : 폰트, 크기 등 */
+    header h1 {
+        font-family: Single Day; font-size: 33px; font-style: italic; color: #056905; text-align: center; height: 45px;
+    }
+
+/* main 스타일 설정 : 고정 영역에 잘린 부분 없게 패딩 */
+main {padding: 80px 0; background-color: #112511;}
+
+    /* main 내 cards 설정 : card flex 정렬 */
+    .cards {display: flex; flex-wrap: wrap; justify-content: center; gap: 6px;}
+
+        /* card 세부 설정 : 체크박스 -> 블럭화, 커서 호버 시 마우스 포인터로 보이도록 변경, 그림자 효과 */
+        .card {
+            display: block;
+            min-height: 480px; min-width: 355px;
+            border: 1px solid #ebffeb; border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+        }
+
+        /* card name 설정 : 폰트*/
+        .game-name {
+            font-size: 33px; text-align: center; font-weight: 900;
+            padding-top: 35px;
+            color:#ebffeb;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+        }
+
+        /* 연출을 위한 일부 요소 hiding 처리, description 공통 설정 */
+        .checked {display: none;}
+        .description {display: none;}
+
+        /* 클릭하여 체크박스 체크 시 name을 hiding하고, description을 노출 + description 노출 시 공통 설정 */
+        .checked:checked ~ .game-name {display: none;}
+        .checked:checked ~ .description {
+            display: flex; flex-direction: column; justify-content: space-between;
+            width: 100%; height: 100%;
+            padding: 35px;                 
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+            /* description 내부 게임 인포 설정 */
+            .game-info {
+                background-color: #f7fff7; color: #183a18;
+                padding: 15px; border: 1px solid #ebffeb; border-radius: 6px;
+                height: 360px;
+                font-size: 20px;
+            }
+
+            /* description 내부 게임 링크 설정 */
+            .game-links {text-align: center; font-size: 18px; font-weight: bold; border: 1px outset #f7fff7;}
+
+                /* 링크 위에 마우스 호버 시 밑줄 표시 */
+                    .game-links:hover {text-decoration: underline;}
+
+            /* card 위에 마우스 호버 시 설정 : 애니메이션 효과 등 */
+            .card:hover {
+                transform: translateY(-10px); transition: all 0.35s ease;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            }
+
+            /* card 위에 마우스 호버 시 name 설정 : 글자색 반전 등 */
+            .card:hover .game-name {
+                font-weight: 900;
+                color: #183a18; text-shadow: 2px 2px 5px rgba(255, 255, 255, 1);
+            }          
+                    
+                /* 게임 1 카드 배경 이미지, 호버 이미지 설정*/
+                .card:nth-child(1) {background-image: linear-gradient(rgba(0, 0, 0, 0.5)), 
+                    url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_b887651a93b0525739049eb4194f633de2df75be.1920x1080.jpg?t=1754692865);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .card:nth-child(1):hover {background-image: linear-gradient(rgba(255, 255, 255, 0.5)), 
+                    url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_b887651a93b0525739049eb4194f633de2df75be.1920x1080.jpg?t=1754692865);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }                   
+
+                /* 게임 2 카드 배경 이미지, 호버 이미지 설정*/
+                .card:nth-child(2) {background-image: linear-gradient(rgba(0, 0, 0, 0.5)), 
+                    url(https://store.nintendo.co.kr/media/catalog/product/cache/69fca11704444074de0ecc4f2e43f422/6/c/6c8214bd886f2c4c04e511a30a6627c7dc2f4934398707bfd497f61c51d5559c_2.jpg);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .card:nth-child(2):hover {background-image: linear-gradient(rgba(255, 255, 255, 0.5)), 
+                    url(https://store.nintendo.co.kr/media/catalog/product/cache/69fca11704444074de0ecc4f2e43f422/6/c/6c8214bd886f2c4c04e511a30a6627c7dc2f4934398707bfd497f61c51d5559c_2.jpg);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+               
+                /* 게임 3 카드 배경 이미지, 호버 이미지 설정*/
+                .card:nth-child(3) {background-image: linear-gradient(rgba(0, 0, 0, 0.5)), 
+                    url(https://image.api.playstation.com/vulcan/ap/rnd/202211/1007/M1j1kwGXMhbfA8OQo3r7wrMw.jpg?w=1920&thumb=false);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .card:nth-child(3):hover {background-image: linear-gradient(rgba(255, 255, 255, 0.5)), 
+                    url(https://image.api.playstation.com/vulcan/ap/rnd/202211/1007/M1j1kwGXMhbfA8OQo3r7wrMw.jpg?w=1920&thumb=false);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                /* 게임 4 카드 배경 이미지, 호버 이미지 설정*/
+                .card:nth-child(4) {background-image: linear-gradient(rgba(0, 0, 0, 0.5)), 
+                    url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322330/ss_d053a7220a03ab689da9312c6d15fe8211401f55.1920x1080.jpg?t=1782413299);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .card:nth-child(4):hover {background-image: linear-gradient(rgba(255, 255, 255, 0.5)), 
+                    url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322330/ss_d053a7220a03ab689da9312c6d15fe8211401f55.1920x1080.jpg?t=1782413299);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                /* 게임 5 카드 배경 이미지, 호버 이미지 설정*/
+                .card:nth-child(5) {background-image: linear-gradient(rgba(0, 0, 0, 0.5)), 
+                    url(https://image.api.playstation.com/vulcan/img/rnd/202010/1520/5liN9zIS3F0j74pareZ2Ehk0.png?w=5000&thumb=false);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .card:nth-child(5):hover {background-image: linear-gradient(rgba(255, 255, 255, 0.5)), 
+                    url(https://image.api.playstation.com/vulcan/img/rnd/202010/1520/5liN9zIS3F0j74pareZ2Ehk0.png?w=5000&thumb=false);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                /* 게임 6 카드 배경 이미지, 호버 이미지 설정*/
+                .card:nth-child(6) {background-image: linear-gradient(rgba(0, 0, 0, 0.5)), 
+                    url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2060160/756bbbb834c91e506a373ed2545253d7dd9e5cf7/ss_756bbbb834c91e506a373ed2545253d7dd9e5cf7.1920x1080.jpg?t=1784296646);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .card:nth-child(6):hover {background-image: linear-gradient(rgba(255, 255, 255, 0.5)), 
+                    url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2060160/756bbbb834c91e506a373ed2545253d7dd9e5cf7/ss_756bbbb834c91e506a373ed2545253d7dd9e5cf7.1920x1080.jpg?t=1784296646);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                /* 게임 7 카드 배경 이미지, 호버 이미지 설정*/
+                .card:nth-child(7) {background-image: linear-gradient(rgba(0, 0, 0, 0.5)), 
+                    url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/601150/ss_d1e0b403f593f17ad195c5382a7788d71c6f406a.1920x1080.jpg?t=1768869803);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .card:nth-child(7):hover {background-image: linear-gradient(rgba(255, 255, 255, 0.5)), 
+                    url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/601150/ss_d1e0b403f593f17ad195c5382a7788d71c6f406a.1920x1080.jpg?t=1768869803);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                /* 게임 8 카드 배경 이미지, 호버 이미지 설정*/
+                .card:nth-child(8) {background-image: linear-gradient(rgba(0, 0, 0, 0.5)), 
+                    url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_d0106273af8a5acd59f71831a10797067032df1f.1920x1080.jpg?t=1764776325);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .card:nth-child(8):hover {background-image: linear-gradient(rgba(255, 255, 255, 0.5)), 
+                    url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_d0106273af8a5acd59f71831a10797067032df1f.1920x1080.jpg?t=1764776325);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+/* footer 스타일 설정 */
+footer ul {display: flex; flex-wrap: wrap; gap: 16px; padding: 5px 0 5px 35px; background-color: #ebffeb;}
+    
+    /* footer 링크 설정 : 우측에 구분 효과 / 마지막 링크는 구분 효과 X */
+    footer li {padding-right: 15px; border-right: 1px solid #003400;}
+   
+    .last-link {border: 0;}
+        
+        /* 링크 위 마우스 호버 시 텍스트 강조 효과 */
+        .shop-links:hover {font-weight: bold;}
