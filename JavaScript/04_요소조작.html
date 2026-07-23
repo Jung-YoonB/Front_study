@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 요소 조작</title>
+
+    <style>
+        .area {border: 1px double khaki; width: 300px; min-height: 50px; padding: 8px; margin: 8px 0;}
+        .active {background-color: lightsalmon;}
+        .on {font-weight: bold; color: aquamarine;}
+    </style>
+</head>
+<body>
+    <h1>DOM 요소 조작</h1>
+
+    <h3>속성과 스타일 변경</h3>
+    <div id="box" class="area">Box 영역</div>
+    <button onclick="change();">변경</button>
+    <script>
+        function change() {
+            // Box 영역의 글자 색을 푸른색으로, 배경색을 회색으로 변경
+            const ele = document.querySelector(`#box`);
+            ele.style.color = `blue`;
+            ele.style.backgroundColor = `#eee`;
+
+            // 특정 속성도 변경
+            // * data-___ : 사용자 정의 속성
+            ele.setAttribute(`data-role`, `admin`);
+                // setAttribute(`속성명`, `속성값`);
+            
+            // * 속성의 값 확인
+                // - 형재 배경색 확인
+            console.log(ele.style.backgroundColor);
+                // - `data-role` 속성값 확인
+            console.log(ele.getAttribute(`data-role`));
+        }
+    </script>
+
+</body>
+</html>
